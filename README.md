@@ -4,3 +4,5 @@
 > the static files are.
 
 See http://inist-cnrs.github.io/jbj-playground/
+
+If you want to serve this static server locally, use `npm start`.
