@@ -320,7 +320,11 @@ h2{
 }
 
 .content h2{
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.modules {
+  margin-bottom: 20px;
 }
 
 label{
