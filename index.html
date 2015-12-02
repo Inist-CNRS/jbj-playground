@@ -8,14 +8,14 @@
   <!-- CSS-->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css"/>
-  <link rel="stylesheet" href="assets/css/jsoneditor.min.css">
+  <link rel="stylesheet" href="assets/css/jsoneditor.min.css"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
 
   <!-- JAVASCRIPT -->
-  <script src="assets/js/jsoneditor.min.js"></script>
-  <script src="assets/js/ace/ace.js"></script>
-  <script src="assets/js/ace/theme-jsoneditor.js"></script>
-  <script src="assets/js/jbj.js" type="text/javascript"></script>
+  <script type="text/javascript" src="assets/js/jsoneditor.min.js"></script>
+  <script type="text/javascript" src="assets/js/ace/ace.js"></script>
+  <script type="text/javascript" src="assets/js/ace/theme-jsoneditor.js"></script>
+  <script type="text/javascript" src="assets/js/jbj.js"></script>
 </head>
 <body>
     <a href="https://github.com/Inist-CNRS/node-jbj"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:2;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
@@ -34,7 +34,7 @@
         <h3 id="examplesButton">Examples</h3>
         <div id="examples" style="height:0;opacity:0;visibility: hidden">
           <input id="search-example" type="text" placeholder="Search...">
-          <ul id="examples-list">         
+          <ul id="examples-list">
           </ul>
         </div>
       </section>
@@ -44,15 +44,15 @@
             <input id="search-action" type="text" placeholder="Search...">
             <ul style="" id="actions-list">
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#append-something--something-something-">append</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#array2object">array2object</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#arrays2objects">arrays2objects</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#arrays2objects">arrayOfArrays2arrayOfObjects</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#array2object">array2object</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#arrays2objects">arrays2objects</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#arrays2objects">arrayOfArrays2arrayOfObjects</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#assert">assert</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#capitalize">capitalize</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#cast">cast</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#coalesce">coalesce</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#compute">compute</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#csv">csv</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#coalesce">coalesce</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-template#compute">compute</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#csv">csv</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#debug">debug</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#deduplicate">deduplicate</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#deduplicate">dedupe</a> </li>
@@ -69,35 +69,37 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#get">get</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#get">find</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#get">path</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getindex">getindex</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getindex">getIndex</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getindexvar">getindexvar</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getindexvar">getIndexVar</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getproperty">getproperty</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getproperty">getProperty</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getpropertyvar">getpropertyvar</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#getpropertyvar">getPropertyVar</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindex">getindex</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindex">getIndex</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindexvar">getindexvar</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindexvar">getIndexVar</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getproperty">getproperty</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getproperty">getProperty</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getpropertyvar">getpropertyvar</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getpropertyvar">getPropertyVar</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#join-string---">join</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#join-string---">glue</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#json">json</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#json">toJSON</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#json">json</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#json">toJSON</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#last">last</a>  </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#mapping">mapping</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#mappingVar">mappingVar</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#mappingVar">combine</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#mapping">mapping</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#mappingVar">mappingVar</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#mappingVar">combine</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#mask">mask</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#max">max</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#min">min</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#minus-value--value-value-">minus</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseCSV">parseCSV</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseCSV">fromCSV</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseCSV">uncsv</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseCSVFile">parseCSVFile</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseCSVFile">fromCSVFile</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseJSON">parseJSON</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseJSON">fromJSON</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseJSON">unjson</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#parseXML">parseXML</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseCSV">parseCSV</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseCSV">fromCSV</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseCSV">uncsv</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseCSVFile">parseCSVFile</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseCSVFile">fromCSVFile</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseJSON">parseJSON</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseJSON">fromJSON</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseJSON">unjson</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseXML">parseXML</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseXML">fromXML</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#parseXML">unxml</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#plus-value--value-value-">plus</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#prepend-something--something-something-">prepend</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#remove">remove</a> </li>
@@ -113,19 +115,19 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sort">sort</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sortby-prop--prop-prop-">sortBy</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sortby-prop--prop-prop-">sort_by</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#substring">substring</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#substring">substr</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#substring">substring</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#substring">substr</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sum">sum</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sum">total</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#template">template</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-template#template">template</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#times-value--value-value-">times</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#trim">trim</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#truncate-length--length-length-">truncate</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#truncatewords-n--n-n-">truncateWords</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#truncatewords-n--n-n-">truncate_words</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#upcase">upcase</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#xml">xml</a> </li>
-              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#zip">zip</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#xml">xml</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#zip">zip</a> </li>
             </ul>
           </div>
       </section>
