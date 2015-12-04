@@ -1,58 +1,33 @@
 var examples = {};
+var urls = [
+  "https://rawgit.com/Inist-CNRS/node-jbj/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-array/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-parse/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-template/master/test/examples.json"
+];
 
 // Get examples from github repositories
-reqwest({url: "https://rawgit.com/Inist-CNRS/node-jbj/master/test/examples.json",
-  crossOrigin: true,
-  type: 'json'
-})
-.then(function (ex) {
+var urlLoaded = 0;
+urls.forEach(function (url) {
 
-  reqwest({url: "https://rawgit.com/Inist-CNRS/node-jbj-array/master/test/examples.json",
+  reqwest({url: url,
     crossOrigin: true,
     type: 'json'
   })
   .then(function (ex) {
-    reqwest({url: "https://rawgit.com/Inist-CNRS/node-jbj-parse/master/test/examples.json",
-      crossOrigin: true,
-      type: 'json'
-    })
-    .then(function (ex) {
-
-      reqwest({url: "https://rawgit.com/Inist-CNRS/node-jbj-template/master/test/examples.json",
-        crossOrigin: true,
-        type: 'json'
-      })
-      .then(function (ex) {
-
-        addExamples(ex);
-
-        addEventListenersOnExamples(examples);
-
-      })
-      .fail(function (err) {
-        console.error(err);
-      });
-
-      addExamples(ex);
-
-    })
-    .fail(function (err) {
-      console.error(err);
-    });
-
     addExamples(ex);
-
+    if (++urlLoaded >= urls.length) {
+      addEventListenersOnExamples(examples);
+    }
   })
   .fail(function (err) {
     console.error(err);
+    if(++urlLoaded >= urls.length) {
+      addEventListenersOnExamples(examples);
+    }
   });
 
-  addExamples(ex);
-})
-.fail(function (err) {
-  console.error(err);
 });
-
 
 /**
  * Initialize Examples list
