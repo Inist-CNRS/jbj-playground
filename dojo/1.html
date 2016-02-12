@@ -86,6 +86,21 @@
             <p>
               TODO: montrer jbj-ist en mode kata
             </p>
+            <a href="https://asciinema.org/a/36273?t=10" target="_blank">
+              <pre><code class="bash" data-trim contenteditable>
+$ echo '{ "resolveDOI": true }' > ./resolveDOI.jbj
+$ echo '"10.1134/S1607672911010121"' > DOI.json
+$ jbj -u ist ./resolveDOI.jbj DOI.json
+{ 'doi-publication-title':
+   [ 'Dokl Biochem Biophys',
+     'Doklady Biochemistry and Biophysics' ],
+  'doi-publication-date-year': 2011,
+  'doi-publisher': 'Pleiades Publishing Ltd',
+  'doi-type': 'journal-article',
+  'doi-ISSN': [ '1607-6729', '1608-3091' ],
+  'doi-subject': [ 'Biophysics', 'Biochemistry', 'Chemistry(all)' ],
+  'doi-DOI': '10.1134/s1607672911010121' }</code></pre>
+            </a>
           </section>
         </section>
 
