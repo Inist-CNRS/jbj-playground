@@ -101,23 +101,107 @@
         <section>
           <section>
             <h2>Récupérer la valeur d'un champ</h2>
-            <p>Avec l'<em>input</em> numéro 1, récupérer l'<code>age</code>.</p>
+            <p>Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input numéro 1</a>, récupérer l'<code>age</code>.</p>
             <p class="fragment">
-              <strong >Astuce</strong>&nbsp;:
+              <strong>Astuce</strong>&nbsp;:
               <a href="https://github.com/Inist-CNRS/node-jbj#get"><code>get</code></a>
             </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "get": "age"
+}
+            </code></pre>
           </section>
         </section>
 
         <section>
           <section>
             <h2>Récuperer plusieurs champs</h2>
+
+            <p>
+              Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input</a>, récupérer à la fois l'<code>age</code> et le <code>name</code>.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              avec <a href="https://github.com/Inist-CNRS/node-jbj#get"><code>get</code></a> aussi,
+              mais avec un tableau en paramètres
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "get": ["age", "name"]
+}
+            </code></pre>
           </section>
         </section>
 
         <section>
           <section>
             <h2>Concaténer deux champs</h2>
+
+            <p>
+              Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input</a>, concaténer les deux champs <code>name</code> et <code>age</code>, dans cet ordre.
+            </p>
+
+            <p>
+              Notez que l'ordre des champs est modifié par rapport à l'input.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#join"><code>join</code></a>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "get": ["name", "age"],
+  "join": ", "
+}
+            </code></pre>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Faire une phrase avec plusieurs champs</h2>
+
+            <p>
+              Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input</a>,faire une phrase qui dit que la personne <code>name</code> a <code>age</code> années.
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj-template#template"><code>template</code></a>
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce 2</strong>&nbsp;:
+                activer <code>template</code> en cliquant sur le bouton
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "template": "{{name}} est un {{job}} de {{age}} ans."
+}
+            </code></pre>
           </section>
         </section>
 
