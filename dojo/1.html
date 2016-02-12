@@ -233,6 +233,311 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Récupérer le premier projet de Yannick</h2>
+
+            <p>
+              Récupérer le <code>name</code> du premier projet.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#select"><code>select</code></a>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects :first-child .name"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Récupérer le dernier projet de Yannick</h2>
+
+            <p>
+              Récupérer le <code>name</code> du dernier projet.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#select"><code>select</code></a>,
+              sélecteur CSS3
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects :last-child .name"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Sélection complexe</h2>
+
+            <p>
+              Récupérer le <code>name</code> des projets qui ont un <code>label</code>.
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects .label ~ .name"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tri simple</h2>
+
+            <p>
+              Récupérer les <code>name</code> des projets dans un tableau.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#select"><code>select</code></a>
+              plus simplement qu'avant
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects .name"
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Tri simple</h2>
+
+            <p>Puis, trier le tableau obtenu.</p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#sort"><code>sort</code></a>
+              </li>
+
+              <li class="fragment">
+
+                <strong>Astuce</strong>&nbsp;: quand une action (comme
+                <code>sort</code>) ne prend pas de paramètre, on lui donne par
+                convention <code>true</code>, mais toute autre valeur fonctionnerait aussi
+
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects .name",
+  "sort": true
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tri sur des objets</h2>
+
+            <p>
+              Récupérer la liste des projets dans un tableau d'objets.
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#select"><code>select</code></a>
+                très simple
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>select</code> renvoie systématiquement un tableau, et
+                comme <code>projects</code> est un tableau, on a un tableau de tableaux. Pour supprimer un niveau, récupérer le premier (et seul) élément de ce tableau, en utilisant <code>"get": 0</code>
+
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects",
+  "get": 0
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Tri sur des objets</h2>
+
+            <p>
+              Puis, trier les projets selon leur <code>name</code>.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#sortBy"><code>sortBy</code></a>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects",
+  "get": 0,
+  "sortBy": "name"
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Opérations sur un tableau</h2>
+
+            <p>
+              Récupérer le tableau des <code>name</code> de chaque projet, et
+              <a title="mettre en majuscule la première lettre">capitaliser</a>
+              chacun d'entre eux.
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#capitalize"><code>capitalize</code></a>
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#foreach"><code>foreach</code></a>
+              </li>
+
+              <li class="fragment">
+
+                <strong>Note</strong>&nbsp;:
+
+                chaque itération à l'intérieur de <code>foreach</code> travaille avec un élément du tableau d'origine comme <em>input</em>
+
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects .name",
+  "foreach": {
+    "capitalize": true
+  }
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Remplacer l'<em>input</em></h2>
+
+            <p>
+              Remplacer tout l'<em>input</em> par la chaîne de caractères <code>nouveau</code>.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#set"><code>set</code></a>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "set": "nouveau"
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Ajouter un champ</h2>
+
+            <p>
+
+              Ajouter un champ à <em>input</em>, dont le nom est
+              <code>dirty</code>, et le contenu <code> Rrogntudjû </code>
+              (avec les espaces en début et fin)
+
+            </p>
+
+            <img src="../../dojo/gaston_rogntudju.jpg">
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#variables"><code>$</code></a>,
+                ajouter une variable
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#set"><code>set</code></a>,
+                car on affecte du JBJ à une variable
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "$dirty": { "set" : " Rrogntudjû " }
+}
+            </code></pre>
+          </section>
+
+        </section>
       </div>
 
     </div>
