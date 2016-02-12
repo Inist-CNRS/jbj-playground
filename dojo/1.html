@@ -538,6 +538,304 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
           </section>
 
         </section>
+
+
+        <section>
+
+          <section>
+            <h2>Nettoyer un champ</h2>
+
+            <p>
+
+              Ajouter un champ à <em>input</em>, dont le nom est
+              <code>clean</code>, et qui prend la valeur du champ
+              <code>dirty</code> auquel on enlève les espaces au début et à la
+              fin.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                n'oubliez pas <code>get</code> (et <code>dirty</code> non plus)
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#trim"><code>trim</code></a>
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "$dirty": { "set": " Rrogntudjû " },
+  "get": "dirty",
+  "trim": true
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Remplacer du texte</h2>
+
+            <p>
+
+              À la suite de la solution de l'exercice précédent, remplacer <code>Rrogn</code> par <code>Nom </code>.
+
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+
+              <a href="https://github.com/Inist-CNRS/node-jbj#replace"><code>replace</code></a>
+              avec deux paramètres
+
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "$dirty": { "set": " Rrogntudjû " },
+  "get": "dirty",
+  "trim": true,
+  "replace": ["Rrogn","Nom "]
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Répéter une action</h2>
+
+            <p>
+
+              À la suite encore, remplacer <code>tudjû</code> par <code>de Dieu</code> (si si!).
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj#replace"><code>replace</code></a>,
+                évidemment!
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                numéroter l'action par <code>#2</code>
+
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "$dirty": { "set": " Rrogntudjû " },
+  "get": "dirty",
+  "trim": true,
+  "replace": ["Rrogn","Nom "],
+  "replace#2": ["tudjû","de Dieu"]
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Verbaliser un tableau de codes</h2>
+
+            <p style="text-align:left">
+
+              Récupérer la liste des <code>name</code> des
+              <code>projects</code> (voir un des exercices précédents), puis
+              remplacer <code>ezpaarse</code> par <code>ezPAARSE</code>, <code
+              >castor-load</code> par <code>Castor-LOAD</code>,
+              <code>termith</code> par <code>Termith</code>, et
+              <code>ezmesure</code> par <code>ezMESURE</code>.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj-array#mapping"><code>mapping</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                activer le module <code>array</code> dans lequel se trouve
+                <code>mapping</code>, en cliquant sur le bouton
+
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".projects .name",
+  "mapping": {
+    "ezpaarse": "ezPAARSE",
+    "castor-load": "Castor-LOAD",
+    "termith": "Termith",
+    "ezmesure": "ezMESURE"
+  }
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Cerise sur le gâteau</h2>
+            <h3>d'anniversaire?</h3>
+
+            <p>
+
+              Calculer l'âge du collègue <code>abder</code>.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj-template#compute"><code>compute</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>get</code> accepte les notations pointées: <code>colleagues.abder.birth</code>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>this</code> contient l'<em>input</em> (dans <code>compute</code>)
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                nous sommes en 2016 :P
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>compute</code> fait partie du module <code>template</code>
+
+              </li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "get": "colleagues.abder.birth",
+  "compute": "2016 - this"
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Série d'âges</h2>
+
+            <p>
+
+              Calculer l'âge des collègues de Yannick.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj-template#compute"><code>compute</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj#foreach"><code>foreach</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj#select"><code>select</code></a>
+
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".birth",
+  "foreach": {
+    "compute": "2016 - this"
+  }
+}
+            </code></pre>
+          </section>
+
+        </section>
+
       </div>
 
     </div>
