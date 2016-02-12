@@ -23,6 +23,17 @@
         <!-- Code syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <style type="text/css">
+        .reveal code {
+            color: white;
+            background: #555;
+            border-radius: 10px;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        </style>
+
         <!-- Printing and PDF exports -->
         <script>
             var link = document.createElement( 'link' );
@@ -72,6 +83,9 @@
                     <section>
                         <h2>JBJ</h2>
                         <h3>Modules</h3>
+                        <p>
+                            TODO: montrer jbj-ist en mode kata
+                        </p>
                     </section>
                 </section>
 
@@ -83,8 +97,8 @@
                     <section>
                         <h2>Récupérer la valeur d'un champ</h2>
                         <p>Avec l'<em>input</em> numéro 1, récupérer l'<code>age</code>.</p>
-                        <p>
-                            <strong>Astuce</strong>&nbsp;:
+                        <p class="fragment">
+                            <strong >Astuce</strong>&nbsp;:
                             <a href="https://github.com/Inist-CNRS/node-jbj#get"><code>get</code></a>
                         </p>
                     </section>
