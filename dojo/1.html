@@ -782,6 +782,16 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
             </code></pre>
           </section>
 
+          <section>
+            <h2>Solution alternative</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "get": "colleagues.abder",
+  "compute": "2016 - birth"
+}
+            </code></pre>
+          </section>
+
         </section>
 
         <section>
@@ -829,6 +839,19 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
   "select": ".birth",
   "foreach": {
     "compute": "2016 - this"
+  }
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim contenteditable>
+{
+  "select": ".colleagues",
+  "get": 0,
+  "foreach": {
+    "compute": "2016 - birth"
   }
 }
             </code></pre>
