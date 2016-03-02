@@ -64,6 +64,48 @@
           </ul>
         </section>
 
+
+        <section>
+          <section>
+            <h2>Pré-requis: JSON</h2>
+            <p>
+              JSON (JavaScript Object Notation) est un format structuré équivalent à XML
+            </p>
+            <div class="fragment">
+            <pre><code class="xml" data-trim contenteditable>
+  <doc>
+    <title>Exemple</title>
+    <ul>
+      <li>imbrication</li>
+      <li>tableaux</li>
+    </ul>
+  </doc>
+            </code></pre>
+            <pre><code class="json" data-trim contenteditable>
+  {
+    "doc": {
+      "title": "Exemple",
+      "ul": [
+        "imbrication",
+        "tableaux"
+      ]
+    }
+  }
+            </code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Parallèle / XSLT</h2>
+            <p>
+              XSLT: XML -> transformé
+            </p>
+            <p>
+              JBJ: JSON -> transformé
+            </p>
+          </section>
+        </section>
+
         <section>
           <section>
             <h2>JBJ</h2>
@@ -105,9 +147,6 @@
           <section>
             <h2>JBJ</h2>
             <h3>Modules</h3>
-            <p>
-              TODO: montrer jbj-ist en mode kata
-            </p>
             <a href="https://asciinema.org/a/36273?t=10&amp;size=big" target="_blank">
               <pre><code class="bash" data-trim contenteditable>
 $ echo '{ "resolveDOI": true }' > ./resolveDOI.jbj
@@ -130,21 +169,22 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
           <section>
             <h2>Déroulement </h2>
             <img data-src="http://images.midilibre.fr/images/2015/02/06/c-est-une-camera-fixe-embarquee-dans-la-voiture-d-un_1300401_667x333.jpg?v=1" alt="un avion incontrolable">
-            <p>Le pilote a fui , vous êtes tous <strong>passagers</strong></p>
+            <p>Le pilote a fui, vous êtes tous <strong>passagers</strong></p>
             <p class="fragment">... l'avion s'écrase</p>
           </section>
           <section>
               <img src="https://s-media-cache-ak0.pinimg.com/736x/8b/a3/02/8ba3028b664a38797eb574f555647a8d.jpg" alt="besoins">
-              <p class="fragment">Il nous faut : </p>
+              <p class="fragment">Il nous faut&nbsp;: </p>
               <ul>
                 <li class="fragment">Un pilote</li>
                 <li class="fragment">Un co-pilote</li>
               </ul>
           </section>
           <section>
-            <p>Votre but: Redresser l'avion </p>
-            <p class="fragment"> Comment ? </p>
-            <p class="fragment"> En réalisant une série d'exercices avant le crash ...</p>
+            <p>Votre but&nbsp;: Redresser l'avion </p>
+            <p class="fragment"> Comment&nbsp;? </p>
+            <p class="fragment"> En réalisant une série d'exercices avant le crash...</p>
+            <p class="fragment"><a href="http://www.online-stopwatch.com/eggtimer-countdown/full-screen/">10 minutes</a> par équipage</p>
           </section>
         </section>
 
