@@ -72,7 +72,7 @@
               JSON (JavaScript Object Notation) est un format structuré équivalent à XML
             </p>
             <div class="fragment">
-            <pre><code class="xml" data-trim contenteditable>
+            <pre><code class="xml" data-trim>
   <doc>
     <title>Exemple</title>
     <ul>
@@ -81,7 +81,7 @@
     </ul>
   </doc>
             </code></pre>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
   {
     "doc": {
       "title": "Exemple",
@@ -204,7 +204,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "get": "age"
 }
@@ -232,7 +232,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "get": ["age", "name"]
 }
@@ -264,7 +264,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "get": ["name", "age"],
   "join": ", "
@@ -300,7 +300,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "template": "{{name}} est un {{job}} de {{age}} ans."
 }
@@ -328,7 +328,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects :first-child .name"
 }
@@ -357,7 +357,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects :last-child .name"
 }
@@ -379,7 +379,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects .label ~ .name"
 }
@@ -407,7 +407,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects .name"
 }
@@ -440,7 +440,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects .name",
   "sort": true
@@ -483,7 +483,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects",
   "get": 0
@@ -511,7 +511,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects",
   "get": 0,
@@ -560,7 +560,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects .name",
   "foreach": {
@@ -592,7 +592,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "set": "nouveau"
 }
@@ -640,7 +640,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "$dirty": { "set" : " Rrogntudjû " }
 }
@@ -687,7 +687,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "$dirty": { "set": " Rrogntudjû " },
   "get": "dirty",
@@ -725,7 +725,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "$dirty": { "set": " Rrogntudjû " },
   "get": "dirty",
@@ -775,7 +775,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "$dirty": { "set": " Rrogntudjû " },
   "get": "dirty",
@@ -831,7 +831,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".projects .name",
   "mapping": {
@@ -904,7 +904,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "get": "colleagues.abder.birth",
   "compute": "2016 - this"
@@ -914,7 +914,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution alternative</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "get": "colleagues.abder",
   "compute": "2016 - birth"
@@ -968,7 +968,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".birth",
   "foreach": {
@@ -980,7 +980,7 @@ $ jbj -u ist ./resolveDOI.jbj DOI.json
 
           <section>
             <h2>Solution</h2>
-            <pre><code class="json" data-trim contenteditable>
+            <pre><code class="json" data-trim>
 {
   "select": ".colleagues",
   "get": 0,
