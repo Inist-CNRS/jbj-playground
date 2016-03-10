@@ -219,12 +219,13 @@ var applyStylesheet = function applyStylesheet() {
   if (input && input.err) return;
   var stylesheet = getValue(stylesheetEditor);
   if (stylesheet.err) return;
-  var out = JBJ.renderSync(stylesheet, input);
-  if (out instanceof Error) {
-    console.error(out);
-    out = "Error: " + out.message;
-  }
-  outputEditor.set(out);
+  JBJ.render(stylesheet, input, function (err, out) {
+    if (err) {
+      console.error(err);
+      out = "Error: " + err.message;
+    }
+    outputEditor.set(out);
+  });
 };
 
 var searchExample = function searchExample(e) {
