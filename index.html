@@ -197,28 +197,23 @@ inputEditor.set(inputJson);
 stylesheetEditor.set(stylesheetJson);
 outputEditor.set(outputJson);
 
-var getValue = function getValue(element) {
-  var value = {};
-  try {
-    value = element.get();
-    return value;
-  }
-  catch(e) {
-    if (element.get() === 'undefined') {
-      return undefined;
-    }
-    console.error(e);
-    value.err = e;
-    outputEditor.set("Error in " + element + ":\n" + e);
-    return value;
-  }
-};
-
 var applyStylesheet = function applyStylesheet() {
-  var input = getValue(inputEditor);
-  if (input && input.err) return;
-  var stylesheet = getValue(stylesheetEditor);
-  if (stylesheet.err) return;
+  var input, stylesheet;
+
+  try {
+    input = inputEditor.get();
+  } catch (e) {
+    console.error(e);
+    return outputEditor.set("Error in input : " + e.message);
+  }
+
+  try {
+    stylesheet = stylesheetEditor.get();
+  } catch (e) {
+    console.error(e);
+    return outputEditor.set("Error in stylesheet : " + e.message);
+  }
+
   JBJ.render(stylesheet, input, function (err, out) {
     if (err) {
       console.error(err);
@@ -229,14 +224,14 @@ var applyStylesheet = function applyStylesheet() {
 };
 
 var searchExample = function searchExample(e) {
-  var toFind     = e.target.value;
+  var toFind     = e.target.value.toLowerCase();
   var len        = toFind.length;
   var examples   = document.getElementById('examples-list');
   var examplesNb = examples.children.length;
   for (var i=0; i < examplesNb; i++) {
     var li = examples.children[i];
-    var text = li.textContent.trim();
-    if (text.slice(0, len) === toFind) {
+    var text = li.textContent.trim().toLowerCase();
+    if (text.indexOf(toFind) >= 0) {
       li.setAttribute('style', 'display:normal');
     }
     else {
@@ -248,14 +243,14 @@ var searchExample = function searchExample(e) {
 var searchAction = function SearchAction(e) {
   console.log(e);
   console.log(e.target.value);
-  var toFind = e.target.value;
+  var toFind = e.target.value.toLowerCase();
   var len    = toFind.length;
   var actionsList = document.getElementById('actions-list');
   var actionsNb = actionsList.children.length;
   for (var i=0; i < actionsNb; i++) {
     var li = actionsList.children[i];
-    var text = li.textContent.trim();
-    if (text.slice(0, len) === toFind) {
+    var text = li.textContent.trim().toLowerCase();
+    if (text.indexOf(toFind) >= 0) {
       li.setAttribute('style', 'display:normal');
     }
     else {
@@ -378,5 +373,3 @@ if (url.slice(0,4) === 'http') {
     <script src="assets/js/examples.js" type="text/javascript"></script>
   </body>
 </html>
-
-
