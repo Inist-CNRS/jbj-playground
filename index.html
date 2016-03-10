@@ -197,28 +197,23 @@ inputEditor.set(inputJson);
 stylesheetEditor.set(stylesheetJson);
 outputEditor.set(outputJson);
 
-var getValue = function getValue(element) {
-  var value = {};
-  try {
-    value = element.get();
-    return value;
-  }
-  catch(e) {
-    if (element.get() === 'undefined') {
-      return undefined;
-    }
-    console.error(e);
-    value.err = e;
-    outputEditor.set("Error in " + element + ":\n" + e);
-    return value;
-  }
-};
-
 var applyStylesheet = function applyStylesheet() {
-  var input = getValue(inputEditor);
-  if (input && input.err) return;
-  var stylesheet = getValue(stylesheetEditor);
-  if (stylesheet.err) return;
+  var input, stylesheet;
+
+  try {
+    input = inputEditor.get();
+  } catch (e) {
+    console.error(e);
+    return outputEditor.set("Error in input : " + e.message)
+  }
+
+  try {
+    stylesheet = stylesheetEditor.get();
+  } catch (e) {
+    console.error(e);
+    return outputEditor.set("Error in stylesheet : " + e.message)
+  }
+
   JBJ.render(stylesheet, input, function (err, out) {
     if (err) {
       console.error(err);
@@ -378,5 +373,3 @@ if (url.slice(0,4) === 'http') {
     <script src="assets/js/examples.js" type="text/javascript"></script>
   </body>
 </html>
-
-
