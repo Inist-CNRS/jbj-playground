@@ -224,14 +224,14 @@ var applyStylesheet = function applyStylesheet() {
 };
 
 var searchExample = function searchExample(e) {
-  var toFind     = e.target.value;
+  var toFind     = e.target.value.toLowerCase();
   var len        = toFind.length;
   var examples   = document.getElementById('examples-list');
   var examplesNb = examples.children.length;
   for (var i=0; i < examplesNb; i++) {
     var li = examples.children[i];
-    var text = li.textContent.trim();
-    if (text.slice(0, len) === toFind) {
+    var text = li.textContent.trim().toLowerCase();
+    if (text.indexOf(toFind) >= 0) {
       li.setAttribute('style', 'display:normal');
     }
     else {
@@ -243,14 +243,14 @@ var searchExample = function searchExample(e) {
 var searchAction = function SearchAction(e) {
   console.log(e);
   console.log(e.target.value);
-  var toFind = e.target.value;
+  var toFind = e.target.value.toLowerCase();
   var len    = toFind.length;
   var actionsList = document.getElementById('actions-list');
   var actionsNb = actionsList.children.length;
   for (var i=0; i < actionsNb; i++) {
     var li = actionsList.children[i];
-    var text = li.textContent.trim();
-    if (text.slice(0, len) === toFind) {
+    var text = li.textContent.trim().toLowerCase();
+    if (text.indexOf(toFind) >= 0) {
       li.setAttribute('style', 'display:normal');
     }
     else {
