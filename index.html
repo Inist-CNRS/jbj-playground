@@ -204,14 +204,14 @@ var applyStylesheet = function applyStylesheet() {
     input = inputEditor.get();
   } catch (e) {
     console.error(e);
-    return outputEditor.set("Error in input : " + e.message)
+    return outputEditor.set("Error in input : " + e.message);
   }
 
   try {
     stylesheet = stylesheetEditor.get();
   } catch (e) {
     console.error(e);
-    return outputEditor.set("Error in stylesheet : " + e.message)
+    return outputEditor.set("Error in stylesheet : " + e.message);
   }
 
   JBJ.render(stylesheet, input, function (err, out) {
