@@ -259,6 +259,12 @@ var searchAction = function SearchAction(e) {
   }
 };
 
+// if the input or the stylesheet change
+// then refresh the result column
+inputEditor.editor.getSession().on('change', applyStylesheet);
+stylesheetEditor.editor.getSession().on('change', applyStylesheet);
+applyStylesheet(); // dont wait for "Try it" button click before applying the stylesheet
+
 var button = document.querySelector('.tryButton');
 button.addEventListener('click', applyStylesheet);
 
