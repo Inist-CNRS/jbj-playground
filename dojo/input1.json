@@ -1,0 +1,37 @@
+{
+  "age": 26,
+  "name": "Yannick",
+  "nick": "nojhamster",
+  "job": "développeur",
+  "projects": [
+    {
+      "name": "ezpaarse",
+      "label": "ezPAARSE",
+      "role": "developer",
+      "repository": "https://github.com/ezpaarse-project/ezpaarse/"
+    },
+    {
+      "name": "castor-load",
+      "role": "contributor",
+      "repository": "https://github.com/castorjs/castor-load/"
+    },
+    {
+      "name": "termith",
+      "role": "contributor"
+    },
+    {
+      "name": "ezmesure",
+      "label": "ezMESURE"
+    }
+  ],
+  "colleagues": {
+    "abder": {
+      "name": "Abderrazzak",
+      "birth": 1950
+    },
+    "dom": {
+      "name": "Dominique",
+      "birth": 1988
+    }
+  }
+}

@@ -1,0 +1,407 @@
+/*
+*
+* XXXXX
+*
+*/
+
+html{
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+    background: #333;
+    padding-left: 15px; /* compensate sidebar width */
+    font-family: "Lato",Calibri,Arial,sans-serif;
+}
+
+.leftInfos{
+  position: absolute;
+  left: 0;
+  top : 0;
+}
+
+
+
+/* MENU */
+
+.optionsButton{
+  position: absolute;
+  top: 10px;
+  right: -60px;
+  height: 60px;
+  width: 60px;
+  background: #64307A;
+  border: 0; color: #555;
+  transition : all 550ms;
+  color: #fff;
+  z-index: 99;
+}
+
+.optionsButton:hover{
+}
+
+.menu {
+  cursor: pointer;
+  margin: 0 auto;
+  padding-left: 1.25em;
+  position: relative;
+  width: 30px;
+  height: 25px;
+}
+.menu-global {
+  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  border-top: 3px solid white;
+  width: 100%;
+  transition: 0.55s;
+}
+.menu-top {
+  top: 0;
+}
+.menu-middle {
+  top: 11px;
+}
+.menu-bottom {
+  bottom: 0;
+}
+.menu-top-click {
+  backface-visibility: hidden;
+  top: 11px;
+  transform: rotate(50deg);
+  transition: 0.5s;
+}
+.menu-middle-click {
+  opacity: 0;
+}
+.menu-bottom-click {
+  backface-visibility: hidden;
+  top: 9px;
+  left: 3.7px;
+  transform: rotate(-410deg);
+  transition: 0.5s;
+}
+
+
+/* END MENU */
+
+.asideInfos{
+  position: fixed;
+  z-index: 9;
+  left: -240px;
+  top:0;
+  height: 100%;
+  width: 240px;
+  max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 2px dashed #f5f5f5;
+  background:#333;
+  transition: left 550ms;
+}
+
+.asideInfos:hover #actionsSection , .asideInfos:hover #examplesSection{
+  display: block !important;
+}
+
+
+#enterAside{
+  float:right;
+  margin-top:50px;
+  color:white;
+  font-size:15px;
+}
+
+
+#quitAside{
+  position: sticky; /* FF /Safari */
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background: grey;
+  text-align: center;
+  font-size: 25px;
+  line-height: 50px;
+  color: #fff;
+  cursor: pointer;
+
+  -moz-box-shadow: -3px 2px 9px 1px #000000;
+  -webkit-box-shadow: -3px 2px 9px 1px #000000;
+  -o-box-shadow: -3px 2px 9px 1px #000000;
+  box-shadow: -3px 2px 9px 1px #000000;
+}
+
+#quitAside:hover{
+  background: #fff;
+  color: #000;
+}
+
+.asideInfos h2{
+  background: #3A1C47;
+  color: #fff;
+  font-size: 1.9em;
+  padding: 20px;
+}
+
+.asideInfos h3{
+  height: 65px;
+  width: 90%;
+  background: #8F3291;
+  text-align: center;
+  font-size: 17px;
+  line-height: 65px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 0;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+
+
+.asideInfos h3:hover{
+  background: #9D3AC6;
+  color: #fff;
+}
+
+
+.asideInfos:hover #enterAside{
+  display: none !important;
+}
+
+.plus , .egal {
+  color: white ; 
+  font-size : 35px; 
+  position: absolute; 
+  top: -15px ; 
+  right : -8px;
+}
+
+.content{
+  position: absolute;
+  width: calc(100vw - 15px);
+  padding-right: 26px;
+}
+#examplesSection{
+    width: 240px;
+    /*border-bottom: 1px solid rgba(58,28,71,0.5);*/
+    /*background: #64307A;*/
+    transition : all 1s;
+    margin-bottom: 7px;
+}
+
+#actionsSection{
+  width: 240px;
+  border-bottom: 1px solid rgba(58,28,71,0.5);
+  transition : all 1s;
+}
+
+/*#actionsButton{
+    background: #8F3291;
+}*/
+
+#examples-list{
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  padding: 18px;
+  list-style: none;
+  max-height: calc(100vh - 180px);
+  overflow-x: hidden;
+}
+
+#actions-list{
+  width: 240px;
+  max-height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  padding: 18px;
+  list-style: none;
+  overflow-x: hidden;
+
+}
+
+#actions-list a{
+  color: #fff;
+}
+
+#actions-list a:hover{
+  text-decoration: none;
+}
+
+#actions , #examples{
+  text-align: center;
+  transition : all 1s;
+}
+
+.example {
+  display: flex;
+  justify-content :  center;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  color: #fff;
+  transition: none;
+  padding-left: 18px;
+  font-style: italic;
+  width: 240px;
+  transition : all 550ms;
+  margin-left: -15px;
+}
+
+.example:hover , .exampleClicked{
+  transform: scale(1.45);
+  box-shadow: 0px 0px 1px 1px white;
+}
+
+.action {
+  display: flex;
+  justify-content :  center;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  color: #fff;
+  transition: none;
+  padding-left: 18px;
+  font-style: italic;
+  width: 240px;
+  transition : all 550ms;
+  margin-left: -15px;
+}
+
+.action:hover{
+  transform: scale(1.3);
+  box-shadow: 0px 0px 1px 1px #E6E6E6;
+}
+
+.action:hover a{
+  color: #fff !important;
+}
+
+#search-action , #search-example{
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 1px transparent;
+  border: 1px solid white;
+  padding: 0px;
+  background: #555 none repeat scroll 0% 0%;
+  color: #FFF;
+  font-size: 13px;
+  text-align: center;
+  font-style: italic;
+}
+
+#search-action:hover , #search-example:hover , #search-action:focus , #search-example:focus{
+  border: 1px solid #DC8FDD;
+}
+
+h1{
+    padding-bottom: 0;
+    margin-bottom:  0;
+    text-align: center;
+    font-size: 45px;
+    color: #fff;
+}
+
+h2{
+    padding-top: 0;
+    margin-top:  0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 22px;
+    color: #bbb;
+}
+
+.content h2{
+  margin-bottom: 20px;
+}
+
+.modules {
+  margin-bottom: 20px;
+}
+
+label{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+
+}
+
+textarea{
+    width: 89%;
+    height: 440px;
+    border-radius: 15px;
+    border: 4px solid #555;
+    background: #333333;
+    color: #ddd;
+}
+
+#inputurl {
+  width: 100%;
+  background: #555555;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  height: 33px;
+  font-size: 17px;
+}
+
+.tryButton{
+    height: 70px;
+    width: 150px;
+    background: #C2BA61;
+    border: 0; color: #555;
+    transition : all 450ms;
+    color: #000;
+}
+
+.tryButton:hover{
+    transform: scale(1.15);
+}
+
+
+.docs ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+}
+
+
+.docs ul li a
+{
+  text-decoration: none;
+  padding: .2em 1em;
+  color: #bbb;
+}
+.docs {
+  color: #bbb;
+  height: 250px !important;
+  overflow-y: scroll;
+}
+
+
+
+/*
+*
+* Changed default Ace editor
+*
+*/
+
+#stylesheet .jsoneditor,
+#input .jsoneditor,
+#output .jsoneditor {
+  width: 100%;
+}
+.jsoneditor .menu{
+  display: none;
+}

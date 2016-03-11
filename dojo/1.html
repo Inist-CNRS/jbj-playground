@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Dojo JBJ</title>
+
+    <meta name="description" content="Dojo JBJ">
+    <meta name="author" content="François Parmentier">
+    <meta name="author" content="Matthias Dieudonné">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <base href="../assets/reveal.js-3.2.0/">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style type="text/css">
+    .reveal code {
+      color: white;
+      background: #555;
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-style: italic;
+    }
+    a code{
+      color : #13DAEC !important;
+    }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Dojo JBJ</h1>
+          <h3>Json By Json par l'exemple</h3>
+          <p>11 mars 2016</p>
+          <ul>
+            <li>Matthias Dieudonné</li>
+            <li>François Parmentier</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Pré-requis: JSON</h2>
+            <p>
+              JSON (JavaScript Object Notation) est un format structuré équivalent à XML
+            </p>
+            <p class="fragments">Pourquoi JSON ?</p>
+            <ul>
+              <li class="fragment">Javascript</li>
+              <li class="fragment">+ Léger</li>
+            </ul>
+            <div class="fragment">
+
+            </div>
+          </section>
+
+          <section>
+            <h2>Comment ça marche ?</h2>
+            <p class="fragment">Ce sont des clés auxquelles on associe une valeur par ":"</p>
+            <div class="fragment"><span style="color: cyan; font-weight: bold; font-size: 130%; margin-right: 10px">{</span><span style="color: yellow">"CLÉ"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: pink">VALEUR</span><span style="color: cyan; font-weight: bold; font-size: 130%; margin-left: 10px">}</span></div>
+
+            <p class="fragment">Les couples clé/valeur sont séparés par une virgule&nbsp;:</p>
+
+            <div class="fragment"><span style="color: cyan; font-weight: bold; font-size: 130%; margin-right: 10px">{</span><span style="color: yellow">"CLÉ X"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: pink">VALEUR X</span><span style="font-weight: bold; font-size: 130%; margin: 0 15px">,</span><span style="color: yellow">"CLÉ Y"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: pink">VALEUR Y</span><span style="color: cyan; font-weight: bold; font-size: 130%; margin-left: 10px">}</span></div>
+          </section>
+
+          <section>
+
+            <p>Possibilités de valeurs :</p>
+
+            <div class="fragment"><span style="color: cyan; font-weight: bold; font-size: 130%; margin-right: 10px">{</span><span style="color: yellow">"Du texte"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: white">"blablabla"</span><span style="font-weight: bold; font-size: 130%; margin: 0 15px">,<br></span><span style="color: yellow">"Un nombre"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: red">42</span><span style="font-weight: bold; font-size: 130%; margin: 0 15px">,<br></span><span style="color: yellow">"Un booléen"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: violet">true</span><span style="font-weight: bold; font-size: 130%; margin: 0 15px">,<br></span><span style="color: yellow">"Valeur null"</span> <span style="font-weight: bold; font-size: 130%">:</span> <s>null</s><span style="font-weight: bold; font-size: 130%; margin: 0 15px">,<br></span><span style="color: yellow">"Un tableau"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: #4CC417">["blabla" , 45]</span><span style="font-weight: bold; font-size: 130%; margin: 0 15px">,<br></span><span style="color: yellow">"Un objet"</span> <span style="font-weight: bold; font-size: 130%">:</span> <span style="color: cyan">{...}</span><span style="color: cyan; font-weight: bold; font-size: 130%; margin-left: 10px">}</span></div>
+
+
+          </section>
+
+          <section>
+          <h2>Exemple</h2>
+            <pre><code class="xml" data-trim>
+  <doc>
+    <title>Exemple</title>
+    <ul>
+      <li>imbrication</li>
+      <li>tableaux</li>
+    </ul>
+  </doc>
+            </code></pre>
+            <pre><code class="json" data-trim>
+{
+  "doc": {
+    "title": "Exemple",
+    "ul": [
+      "imbrication",
+      "tableaux"
+    ]
+  }
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Parallèle / XSLT</h2>
+            <p>
+              XSLT: XML -> transformé
+            </p>
+            <p>
+              JBJ: JSON -> transformé
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>JBJ</h2>
+            <h3>Historique</h3>
+            <ul>
+              <li><a href="http://madec-project.github.io/">MADEC</a>&nbsp;: <a href="http://ezvis.readthedocs.org/en/latest/JBJ/">ezvis</a></li>
+              <li><a href="http://www.atilf.fr/ressources/termith/">TermiTH</a>&nbsp;: <a href="https://github.com/termith-anr/idefix">idefix</a>, <a href="https://github.com/termith-anr/totem">totem</a></li>
+              <li><a href="https://github.com/Inist-CNRS/lodex">LODEX</a></li>
+            </ul>
+            <p>
+              Point commun&nbsp;: <a href="https://github.com/castorjs/castor-core">castor-core</a> (fin janvier 2015)
+            </p>
+            <p>
+              <a href="https://github.com/Inist-CNRS/node-jbj">https://github.com/Inist-CNRS/node-jbj</a> (v4.1)
+            </p>
+          </section>
+
+          <section>
+            <h2>JBJ</h2>
+            <h3>Modes d'utilisation</h3>
+            <ul>
+              <li>module <a href="https://www.npmjs.com/package/jbj">npm</a> (programmation)</li>
+              <li>commande CLI: <a href="https://www.npmjs.com/package/jbj-command">jbj</a></li>
+              <li><a href="http://inist-cnrs.github.io/jbj-playground/">PlayGround</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>JBJ</h2>
+            <h3>Principe</h3>
+            <img src="../../dojo/Principe de JBJ.svg" title="Transformer un Objet JavaScript (JSON) en un autre Objet JavaScript, via une feuille de style écrite en JSON">
+          </section>
+
+          <section>
+            <h2>JBJ</h2>
+            <h3>Entrées-sorties</h3>
+            <img src="../../dojo/Entrée-sortie JBJ.svg" title="Chaque action transforme l'objet en entrée en l'objet d'entrée de l'action suivante">
+          </section>
+
+          <section>
+            <h2>JBJ</h2>
+            <h3>Modules</h3>
+            <a href="https://asciinema.org/a/36273?t=10&amp;size=big" target="_blank">
+              <pre><code class="bash" data-trim>
+$ echo '{ "resolveDOI": true }' > ./resolveDOI.jbj
+$ echo '"10.1134/S1607672911010121"' > DOI.json
+$ jbj -u ist ./resolveDOI.jbj DOI.json
+{ 'doi-publication-title':
+   [ 'Dokl Biochem Biophys',
+     'Doklady Biochemistry and Biophysics' ],
+  'doi-publication-date-year': 2011,
+  'doi-publisher': 'Pleiades Publishing Ltd',
+  'doi-type': 'journal-article',
+  'doi-ISSN': [ '1607-6729', '1608-3091' ],
+  'doi-subject': [ 'Biophysics', 'Biochemistry', 'Chemistry(all)' ],
+  'doi-DOI': '10.1134/s1607672911010121' }</code></pre>
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Déroulement </h2>
+            <img data-src="http://images.midilibre.fr/images/2015/02/06/c-est-une-camera-fixe-embarquee-dans-la-voiture-d-un_1300401_667x333.jpg?v=1" alt="un avion incontrolable">
+            <p>Le pilote a fui, vous êtes tous <strong>passagers</strong></p>
+            <p class="fragment">... l'avion s'écrase</p>
+          </section>
+          <section>
+              <img src="https://s-media-cache-ak0.pinimg.com/736x/8b/a3/02/8ba3028b664a38797eb574f555647a8d.jpg" alt="besoins">
+              <p class="fragment">Il nous faut&nbsp;: </p>
+              <ul>
+                <li class="fragment">Un pilote</li>
+                <li class="fragment">Un co-pilote</li>
+              </ul>
+          </section>
+          <section>
+            <p>Votre but&nbsp;: Redresser l'avion </p>
+            <p class="fragment"> Comment&nbsp;? </p>
+            <p class="fragment"> En réalisant une série d'exercices avant le crash...</p>
+            <p class="fragment"><a href="http://www.online-stopwatch.com/eggtimer-countdown/full-screen/" target="countdown">10 minutes</a> par équipage</p>
+            <p class="fragment">Découvrons le <a href="http://inist-cnrs.github.io/jbj-playground/">tableau de bord</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Récupérer la valeur d'un champ</h2>
+            <p>Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input numéro 1</a>, récupérer l'<code>age</code>.</p>
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#get" target="doc"><code>get</code></a>
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "get": "age"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Récuperer plusieurs champs</h2>
+
+            <p>
+              Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input</a>, récupérer à la fois l'<code>age</code> et le <code>name</code>.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              avec <a href="https://github.com/Inist-CNRS/node-jbj#get" target="doc"><code>get</code></a> aussi,
+              mais avec un tableau en paramètres
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "get": ["age", "name"]
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Concaténer deux champs</h2>
+
+            <p>
+              Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input</a>, concaténer les deux champs <code>name</code> et <code>age</code>, dans cet ordre.
+            </p>
+
+            <p>
+              Notez que l'ordre des champs est modifié par rapport à l'input.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#join" target="doc"><code>join</code></a>
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "get": ["name", "age"],
+  "join": ", "
+}
+            </code></pre>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Faire une phrase avec plusieurs champs</h2>
+
+            <p>
+              Avec l'<a href="http://inist-cnrs.github.io/jbj-playground/?input=https://raw.githubusercontent.com/Inist-CNRS/jbj-playground/gh-pages/dojo/input1.json" target="_blank">input</a>,faire une phrase qui dit que la personne <code>name</code> a <code>age</code> années.
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj-template#template" target="doc"><code>template</code></a>
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce 2</strong>&nbsp;:
+                activer <code>template</code> en cliquant sur le bouton
+              </li>
+            </ul>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "template": "{{name}} est un {{job}} de {{age}} ans."
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Récupérer le premier projet de Yannick</h2>
+
+            <p>
+              Récupérer le <code>name</code> du premier projet.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#select" target="doc"><code>select</code></a>
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects :first-child .name"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Récupérer le dernier projet de Yannick</h2>
+
+            <p>
+              Récupérer le <code>name</code> du dernier projet.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#select" target="doc"><code>select</code></a>,
+              sélecteur CSS3
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects :last-child .name"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Sélection complexe</h2>
+
+            <p>
+              Récupérer le <code>name</code> des projets qui ont un <code>label</code>.
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects .label ~ .name"
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tri simple</h2>
+
+            <p>
+              Récupérer les <code>name</code> des projets dans un tableau.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#select" target="doc"><code>select</code></a>
+              plus simplement qu'avant
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects .name"
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Tri simple</h2>
+
+            <p>Puis, trier le tableau obtenu.</p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#sort" target="doc"><code>sort</code></a>
+              </li>
+
+              <li class="fragment">
+
+                <strong>Astuce</strong>&nbsp;: quand une action (comme
+                <code>sort</code>) ne prend pas de paramètre, on lui donne par
+                convention <code>true</code>, mais toute autre valeur fonctionnerait aussi
+
+              </li>
+            </ul>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects .name",
+  "sort": true
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tri sur des objets</h2>
+
+            <p>
+              Récupérer la liste des projets dans un tableau d'objets.
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#select" target="doc"><code>select</code></a>
+                très simple
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>select</code> renvoie systématiquement un tableau, et
+                comme <code>projects</code> est un tableau, on a un tableau de tableaux. Pour supprimer un niveau, récupérer le premier (et seul) élément de ce tableau, en utilisant <code>"get": 0</code>
+
+              </li>
+
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects",
+  "get": 0
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Tri sur des objets</h2>
+
+            <p>
+              Puis, trier les projets selon leur <code>name</code>.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#sortBy" target="doc"><code>sortBy</code></a>
+            </p>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects",
+  "get": 0,
+  "sortBy": "name"
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Opérations sur un tableau</h2>
+
+            <p>
+              Récupérer le tableau des <code>name</code> de chaque projet, et
+              <a title="mettre en majuscule la première lettre">capitaliser</a>
+              chacun d'entre eux.
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#capitalize" target="doc"><code>capitalize</code></a>
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#foreach" target="doc"><code>foreach</code></a>
+              </li>
+
+              <li class="fragment">
+
+                <strong>Note</strong>&nbsp;:
+
+                chaque itération à l'intérieur de <code>foreach</code> travaille avec un élément du tableau d'origine comme <em>input</em>
+
+              </li>
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects .name",
+  "foreach": {
+    "capitalize": true
+  }
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Remplacer l'<em>input</em></h2>
+
+            <p>
+              Remplacer tout l'<em>input</em> par la chaîne de caractères <code>nouveau</code>.
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+              <a href="https://github.com/Inist-CNRS/node-jbj#set" target="doc"><code>set</code></a>
+            </p>
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "set": "nouveau"
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Ajouter un champ</h2>
+
+            <p>
+
+              Ajouter un champ à <em>input</em>, dont le nom est
+              <code>dirty</code>, et le contenu <code> Rrogntudjû </code>
+              (avec les espaces en début et fin)
+
+            </p>
+
+            <img src="../../dojo/gaston_rogntudju.jpg">
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#variables" target="doc"><code>$</code></a>,
+                ajouter une variable
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#set" target="doc"><code>set</code></a>,
+                car on affecte du JBJ à une variable
+              </li>
+
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "$dirty": { "set" : " Rrogntudjû " }
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+
+        <section>
+
+          <section>
+            <h2>Nettoyer un champ</h2>
+
+            <p>
+
+              Ajouter un champ à <em>input</em>, dont le nom est
+              <code>clean</code>, et qui prend la valeur du champ
+              <code>dirty</code> auquel on enlève les espaces au début et à la
+              fin.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                n'oubliez pas <code>get</code> (et <code>dirty</code> non plus)
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+                <a href="https://github.com/Inist-CNRS/node-jbj#trim" target="doc"><code>trim</code></a>
+              </li>
+
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "$dirty": { "set": " Rrogntudjû " },
+  "get": "dirty",
+  "trim": true
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Remplacer du texte</h2>
+
+            <p>
+
+              À la suite de la solution de l'exercice précédent, remplacer <code>Rrogn</code> par <code>Nom </code>.
+
+            </p>
+
+            <p class="fragment">
+              <strong>Astuce</strong>&nbsp;:
+
+              <a href="https://github.com/Inist-CNRS/node-jbj#replace" target="doc"><code>replace</code></a>
+              avec deux paramètres
+
+            </p>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "$dirty": { "set": " Rrogntudjû " },
+  "get": "dirty",
+  "trim": true,
+  "replace": ["Rrogn","Nom "]
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Répéter une action</h2>
+
+            <p>
+
+              À la suite encore, remplacer <code>tudjû</code> par <code>de Dieu</code> (si si!).
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj#replace" target="doc"><code>replace</code></a>,
+                évidemment!
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                numéroter l'action par <code>#2</code>
+
+              </li>
+
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "$dirty": { "set": " Rrogntudjû " },
+  "get": "dirty",
+  "trim": true,
+  "replace": ["Rrogn","Nom "],
+  "replace#2": ["tudjû","de Dieu"]
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Verbaliser un tableau de codes</h2>
+
+            <p style="text-align:left">
+
+              Récupérer la liste des <code>name</code> des
+              <code>projects</code> (voir un des exercices précédents), puis
+              remplacer <code>ezpaarse</code> par <code>ezPAARSE</code>, <code
+              >castor-load</code> par <code>Castor-LOAD</code>,
+              <code>termith</code> par <code>Termith</code>, et
+              <code>ezmesure</code> par <code>ezMESURE</code>.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj-array#mapping" target="doc"><code>mapping</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                activer le module <code>array</code> dans lequel se trouve
+                <code>mapping</code>, en cliquant sur le bouton
+
+              </li>
+
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".projects .name",
+  "mapping": {
+    "ezpaarse": "ezPAARSE",
+    "castor-load": "Castor-LOAD",
+    "termith": "Termith",
+    "ezmesure": "ezMESURE"
+  }
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Cerise sur le gâteau</h2>
+            <h3>d'anniversaire?</h3>
+
+            <p>
+
+              Calculer l'âge du collègue <code>abder</code>.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj-template#compute" target="doc"><code>compute</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>get</code> accepte les notations pointées: <code>colleagues.abder.birth</code>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>this</code> contient l'<em>input</em> (dans <code>compute</code>)
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                nous sommes en 2016 :P
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <code>compute</code> fait partie du module <code>template</code>
+
+              </li>
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "get": "colleagues.abder.birth",
+  "compute": "2016 - this"
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Solution alternative</h2>
+            <pre><code class="json" data-trim>
+{
+  "get": "colleagues.abder",
+  "compute": "2016 - birth"
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Série d'âges</h2>
+
+            <p>
+
+              Calculer l'âge des collègues de Yannick.
+
+            </p>
+
+            <ul>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj-template#compute" target="doc"><code>compute</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj#foreach" target="doc"><code>foreach</code></a>
+
+              </li>
+
+              <li class="fragment">
+                <strong>Astuce</strong>&nbsp;:
+
+                <a href="https://github.com/Inist-CNRS/node-jbj#select" target="doc"><code>select</code></a>
+
+              </li>
+
+            </ul>
+
+            <p class="fragment" style="font-size: 13px">
+              <em>Pour voir la solution, flèche vers le bas</em>
+            </p>
+
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".birth",
+  "foreach": {
+    "compute": "2016 - this"
+  }
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>Solution</h2>
+            <pre><code class="json" data-trim>
+{
+  "select": ".colleagues",
+  "get": 0,
+  "foreach": {
+    "compute": "2016 - birth"
+  }
+}
+            </code></pre>
+          </section>
+
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
