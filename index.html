@@ -166,9 +166,6 @@
             <div id="output"></div>
           </div>
       </div>
-      <div class="text-center row">
-          <button class="tryButton">TRY IT!</button>
-      </div>
     </section>
 
     <script type="text/javascript">
@@ -259,8 +256,11 @@ var searchAction = function SearchAction(e) {
   }
 };
 
-var button = document.querySelector('.tryButton');
-button.addEventListener('click', applyStylesheet);
+// if the input or the stylesheet change
+// then refresh the result column
+inputEditor.editor.getSession().on('change', applyStylesheet);
+stylesheetEditor.editor.getSession().on('change', applyStylesheet);
+applyStylesheet(); // dont wait for "Try it" button click before applying the stylesheet
 
 var search_action = document.getElementById('search-action');
 search_action.addEventListener('keyup', searchAction);
