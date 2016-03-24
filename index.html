@@ -50,6 +50,7 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#assert">assert</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#capitalize">capitalize</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#cast">cast</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#class">class</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#coalesce">coalesce</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-template#compute">compute</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#csv">csv</a> </li>
@@ -73,6 +74,7 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindex">getIndex</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindexvar">getindexvar</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getindexvar">getIndexVar</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#getJsonLdField">getJsonLdField</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getproperty">getproperty</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getproperty">getProperty</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#getpropertyvar">getpropertyvar</a> </li>
@@ -116,9 +118,12 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sort">sort</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sortby-prop--prop-prop-">sortBy</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sortby-prop--prop-prop-">sort_by</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#style">style</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#substring">substring</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#substring">substr</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sum">sum</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#tag">tag</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#toHtml">toHtml</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sum">total</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-template#template">template</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#times-value--value-value-">times</a> </li>
@@ -145,6 +150,7 @@
         <button id="arrayButton"    class="btn btn-default">array</button>
         <button id="parseButton"    class="btn btn-default">parse</button>
         <button id="templateButton" class="btn btn-default">template</button>
+        <button id="rdfaButton"     class="btn btn-default">rdfa</button>
       </div>
 
       <div class="row">
@@ -342,6 +348,7 @@ var addModuleButton = function addModuleButton(module, button) {
 addModuleButton('jbj-array',arrayButton);
 addModuleButton('jbj-parse',parseButton);
 addModuleButton('jbj-template',templateButton);
+addModuleButton('jbj-rdfa',rdfaButton);
 
 /**
  * Request the URL content and put it in inputEditor.
