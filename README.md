@@ -9,13 +9,31 @@ If you want to serve this static server locally, use `npm start`.
 
 ## Contribute
 
+### Install
+
 If you want to add a module to the playground, say 'jbj-module', first install
-it and rebuild the `jbj.js` bundle:
+it:
 
 ```bash
 $ npm install --save jbj-module
+```
+
+Then, add it to the `build` script in `package.json`:
+```json
+{
+  "scripts": {
+    "build": "browserify --debug -r jbj -r jbj-module -r reqwest > ./assets/js/jbj.js",
+  }
+}
+```
+
+and rebuild the `jbj.js` bundle:
+
+```bash
 $ npm run build
 ```
+
+### Add the button
 
 Next, add the button in `index.html`:
 
@@ -42,7 +60,41 @@ addModuleButton('jbj-template',templateButton);
 addModuleButton('jbj-module',moduleButton);
 ```
 
+### Add documentation
+
+To add the JBJ actions of the `jbj-module`, insert `li` tags into the list 
+which id is `actions-list`.
+
+For example, if you want to add the link to `myAction` action, add a line:
+
+```html
+<li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-module#myAction">myAction</a> </li>
+```
+
+
+### Add examples
+
+To add the examples, you have to link to an `examples.json` in the `jbj-module`
+repository, generally those used to test the module.
+For that, edit `assets/js/examples.js`, and complete the `urls` table:
+
+```js
+var urls = [
+  "https://rawgit.com/Inist-CNRS/node-jbj/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-array/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-parse/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-template/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-module/master/test/examples.json"
+];
+```
+
+
+### Test it
+
 You can test using `npm start`.
+
+
+### Push it
 
 Don't forget to commit and push (to the `gh-pages` branch):
 
