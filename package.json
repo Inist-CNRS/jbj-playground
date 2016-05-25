@@ -5,7 +5,7 @@
   "description": "JBJ Playground: test your stylesheets online",
   "main": "index.html",
   "scripts": {
-    "build": "browserify --debug -r jbj -r jbj-array -r jbj-parse -r jbj-template -r jbj-rdfa -r reqwest > ./assets/js/jbj.js",
+    "build": "browserify --debug -r jbj -r jbj-array -r jbj-parse -r jbj-template -r jbj-rdfa -r jbj-nlp -r reqwest > ./assets/js/jbj.js",
     "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,6 +31,7 @@
     "http-server": "^0.8.5",
     "jbj": "^4.2.0",
     "jbj-array": "^1.0.0",
+    "jbj-nlp": "^1.0.0",
     "jbj-parse": "^1.0.0",
     "jbj-rdfa": "^1.1.0",
     "jbj-template": "^1.0.0",

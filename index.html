@@ -43,6 +43,7 @@
           <div id="actions" style="height:0;opacity:0;visibility: hidden">
             <input id="search-action" type="text" placeholder="Search...">
             <ul style="" id="actions-list">
+              <li class="action"><a href="https://github.com/Inist-CNRS/node-jbj-nlp#anglicize" target="_blank">anglicize</a></li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#add">add</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#append-something--something-something-">append</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#array2object">array2object</a> </li>
@@ -54,6 +55,8 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#class">class</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#coalesce">coalesce</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-template#compute">compute</a> </li>
+              <li class="action"><a href="https://github.com/Inist-CNRS/node-jbj-nlp#countCharacters" target="_blank">countCharacters</a></li>
+              <li class="action"><a href="https://github.com/Inist-CNRS/node-jbj-nlp#countWords" target="_blank">countWords</a></li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#csv">csv</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#debug">debug</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#deduplicate">deduplicate</a> </li>
@@ -126,6 +129,7 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sum">sum</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#tag">tag</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#toHtml">toHtml</a> </li>
+              <li class="action"><a href="https://github.com/Inist-CNRS/node-jbj-nlp#tokenize" target="_blank">tokenize</a></li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#sum">total</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-template#template">template</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#times-value--value-value-">times</a> </li>
@@ -153,6 +157,7 @@
         <button id="parseButton"    class="btn btn-default">parse</button>
         <button id="templateButton" class="btn btn-default">template</button>
         <button id="rdfaButton"     class="btn btn-default">rdfa</button>
+        <button id="nlpButton"      class="btn btn-default">nlp</button>
       </div>
 
       <div class="row">
@@ -289,7 +294,10 @@ var examples       = document.getElementById('examples'),
     content        = document.getElementsByClassName('content')[0],
     arrayButton    = document.getElementById('arrayButton'),
     parseButton    = document.getElementById('parseButton'),
-    templateButton = document.getElementById('templateButton');
+    templateButton = document.getElementById('templateButton'),
+    rdfaButton     = document.getElementById('rdfaButton'),
+    nlpButton      = document.getElementById('nlpButton')
+    ;
 
 optionsButton.addEventListener('click' , function (e) {
   if(asideInfos.style.left !== "0px"){
@@ -351,6 +359,7 @@ addModuleButton('jbj-array',arrayButton);
 addModuleButton('jbj-parse',parseButton);
 addModuleButton('jbj-template',templateButton);
 addModuleButton('jbj-rdfa',rdfaButton);
+addModuleButton('jbj-nlp',nlpButton);
 
 /**
  * Request the URL content and put it in inputEditor.
