@@ -29,9 +29,9 @@
   "dependencies": {
     "browserify": "^12.0.1",
     "http-server": "^0.8.5",
-    "jbj": "^4.2.0",
+    "jbj": "^4.2.3",
     "jbj-array": "^1.0.0",
-    "jbj-nlp": "^1.0.0",
+    "jbj-nlp": "^1.1.0",
     "jbj-parse": "^1.0.0",
     "jbj-rdfa": "^1.1.1",
     "jbj-template": "^1.0.0",
