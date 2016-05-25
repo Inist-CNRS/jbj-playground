@@ -60,6 +60,16 @@ addModuleButton('jbj-template',templateButton);
 addModuleButton('jbj-module',moduleButton);
 ```
 
+Don't forget to declare the variable `moduleButton`, above:
+
+```javascript
+arrayButton    = document.getElementById('arrayButton'),
+parseButton    = document.getElementById('parseButton'),
+templateButton = document.getElementById('templateButton'),
+// ...
+moduleButton = document.getElementById('moduleButton'),
+```
+
 ### Add documentation
 
 To add the JBJ actions of the `jbj-module`, insert `li` tags into the list 
