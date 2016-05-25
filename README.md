@@ -63,7 +63,7 @@ addModuleButton('jbj-module',moduleButton);
 ### Add documentation
 
 To add the JBJ actions of the `jbj-module`, insert `li` tags into the list 
-which id is `actions-list`.
+which id is `actions-list`, in `index.html`.
 
 For example, if you want to add the link to `myAction` action, add a line:
 
