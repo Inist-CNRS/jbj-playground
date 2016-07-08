@@ -67,8 +67,6 @@ function addEventListenersOnExamples(examples) {
     var stylesheet  = examples[exampleName].stylesheet;
     inputEditor.set(input);
     stylesheetEditor.set(stylesheet);
-    var result           = JBJ.renderSync(stylesheet, input);
-    outputEditor.set(result);
   };
 
   var examplesList = document.getElementsByClassName('example');
