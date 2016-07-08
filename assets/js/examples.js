@@ -39,6 +39,11 @@ urls.forEach(function (url) {
 function addExamples(ex) {
   var examplesUl = document.getElementById('examples-list');
   for (var example in ex) {
+    // examples.json occasionnally contain error cases
+    // don't show them
+    if (ex[example].error) {
+      continue;
+    }
     examples[example] = ex[example];
     var nExample = document.createElement('li');
     nExample.className = "example";
