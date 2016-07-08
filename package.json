@@ -27,15 +27,15 @@
   },
   "homepage": "https://github.com/Inist-CNRS/jbj-playground#readme",
   "dependencies": {
-    "browserify": "^12.0.1",
+    "browserify": "^13.0.1",
     "http-server": "^0.8.5",
-    "jbj": "^4.4.2",
+    "jbj": "^6.0.2",
     "jbj-array": "^1.0.0",
     "jbj-nlp": "^1.1.0",
     "jbj-numerical": "^1.0.0",
-    "jbj-parse": "^1.0.0",
+    "jbj-parse": "^2.0.0",
     "jbj-rdfa": "^1.1.2",
-    "jbj-template": "^1.0.0",
+    "jbj-template": "^2.0.0",
     "reqwest": "^2.0.5"
   }
 }
