@@ -55,6 +55,7 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-rdfa#class">class</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#coalesce">coalesce</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#compute">compute</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-jsonld#context">context</a> </li>
               <li class="action"><a href="https://github.com/Inist-CNRS/node-jbj-nlp#countCharacters" target="_blank">countCharacters</a></li>
               <li class="action"><a href="https://github.com/Inist-CNRS/node-jbj-nlp#countWords" target="_blank">countWords</a></li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#csv">csv</a> </li>
@@ -92,6 +93,7 @@
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#join-string---">glue</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#json">json</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-parse#json">toJSON</a> </li>
+              <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-jsonld#jsonld">jsonld</a> </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj#last">last</a>  </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-numerical#loselose">loselose</a>  </li>
               <li class="action"> <a target="_blank" href="https://github.com/Inist-CNRS/node-jbj-array#mapping">mapping</a> </li>
@@ -169,6 +171,7 @@
         <button id="rdfaButton"      class="btn btn-default">rdfa</button>
         <button id="nlpButton"       class="btn btn-default">nlp</button>
         <button id="numericalButton" class="btn btn-default">numerical</button>
+        <button id="jsonldButton"    class="btn btn-default">jsonld</button>
       </div>
 
       <div class="row">
@@ -309,6 +312,7 @@ var examples        = document.getElementById('examples'),
     rdfaButton      = document.getElementById('rdfaButton'),
     nlpButton       = document.getElementById('nlpButton'),
     numericalButton = document.getElementById('numericalButton')
+    jsonldButton    = document.getElementById('jsonldButton')
     ;
 
 optionsButton.addEventListener('click' , function (e) {
@@ -373,6 +377,7 @@ addModuleButton('jbj-template',templateButton);
 addModuleButton('jbj-rdfa',rdfaButton);
 addModuleButton('jbj-nlp',nlpButton);
 addModuleButton('jbj-numerical',numericalButton);
+addModuleButton('jbj-jsonld',jsonldButton);
 
 /**
  * Request the URL content and put it in inputEditor.

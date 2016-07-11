@@ -6,7 +6,8 @@ var urls = [
   "https://rawgit.com/Inist-CNRS/node-jbj-template/master/test/examples.json",
   "https://rawgit.com/Inist-CNRS/node-jbj-rdfa/master/test/examples.json",
   "https://rawgit.com/Inist-CNRS/node-jbj-nlp/master/test/examples.json",
-  "https://rawgit.com/Inist-CNRS/node-jbj-numerical/master/test/examples.json"
+  "https://rawgit.com/Inist-CNRS/node-jbj-numerical/master/test/examples.json",
+  "https://rawgit.com/Inist-CNRS/node-jbj-jsonld/master/test/examples.json"
 ];
 
 // Get examples from github repositories
