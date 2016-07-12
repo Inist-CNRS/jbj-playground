@@ -198,10 +198,25 @@
     <script type="text/javascript">
 var JBJ     = require('jbj');
 var reqwest = require('reqwest');
+var URL     = require('url');
 
 var input       = document.getElementById('input'),
     stylesheet  = document.getElementById('stylesheet'),
     output      = document.getElementById('output');
+
+JBJ.register('http:', function(urlObj, callback) {
+  reqwest({
+    url: URL.format(urlObj),
+    crossOrigin: true,
+    success: function (content) {
+      callback(null, content);
+    },
+    error: function (err) {
+      console.error("fetch",err);
+      callback(err);
+    }
+  })
+});
 
 // JsonEditor Options
 var jseOptions = {
