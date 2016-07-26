@@ -29,7 +29,7 @@
   "dependencies": {
     "browserify": "^13.0.1",
     "http-server": "^0.8.5",
-    "jbj": "^6.0.2",
+    "jbj": "^7.1.0",
     "jbj-array": "^1.0.0",
     "jbj-jsonld": "^1.0.0",
     "jbj-nlp": "^1.1.0",
